@@ -1,0 +1,58 @@
+﻿@model TourListVM
+@{
+    ViewBag.Title = "Tour";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/bodystyle.css">
+</head>
+<body>
+    <section class="w3l-main-slider" id="home">
+        <div class="banner-content-tour">                 
+                <div class="demo-inner-content">
+                    <div class="container">
+                        <div class="banner-infhny">
+                            <h3>You don't need to go far to find what matters.</h3>
+                            <h6 class="mb-3">Discover your next adventure</h6>
+                            <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
+                                <form asp-controller="home" asp-action="tour" method="post" class="booking-form">
+                                    <div class="row book-form">
+                                        <div class="form-input col-md-4 mt-md-0 mt-3">
+
+                                            <select name="tourType" class="selectpicker">
+                                                <option value="">Destination</option>
+                                                <option value="güney doğu anadolu">Güney Doğu Anadolu</option>
+                                                <option value="kapadokya">Kapadokya</option>
+                                                <option value="karadeniz">Karadeniz</option>
+                                                <option value="doğu anadolu">Doğu Anadolu</option>
+                                                <option value="europe">Europe</option>
+                                                <option value="akdeniz">Akdeniz</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-input col-md-4 mt-md-0 mt-3">
+
+                                            <input type="date" name="" placeholder="Date" required="">
+                                        </div>
+                                        <div class="bottom-btn col-md-4 mt-md-0 mt-3">
+                                            <button class="btn btn-style btn-secondary">
+                                                <span class="fa fa-search mr-3"
+                                                      aria-hidden="true"></span> Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+</html>
+
+
+

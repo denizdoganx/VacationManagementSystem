@@ -1,0 +1,34 @@
+﻿@model RoomUpdateVM
+
+
+@{
+    ViewBag.Title = "HotelAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_HotelAdminLayout.cshtml";
+}
+<h2>Room will update to here</h2>
+<br />
+
+<form asp-controller="admin" asp-action="updateroom" class="form-group" method="post">
+    <label>Max Guest:</label>
+    <input asp-for="maxGuest" type="number" name="maxGuest" placeholder="@Model.maxGuest" />
+    <br />
+    <label>Room Price:</label>
+    <input asp-for="roomPrice" type="text" name="roomPrice" placeholder="@Model.roomPrice" />
+    <br />
+    <label>Description:</label>
+    <textarea asp-for="description" name="description" placeholder="@Model.description" rows="20" cols="80"></textarea>
+    <br />
+
+    <button class="btn btn-primary">UPDATE</button>
+</form>
+
+<div asp-validation-summary="All">
+
+</div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

@@ -1,0 +1,37 @@
+﻿
+@model List<Flight>
+
+@{
+    ViewBag.Title = "AirlineAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_AirlineAdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Capacity</th>
+        <th>Destination</th>
+        <th>Empty Seat Number</th>
+        <th>Price</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.from</td>
+            <td>@item.to</td>
+            <td>@item.capacity</td>
+            <td>@item.destination</td>
+            <td>@item.emptySeatNumber</td>
+            <td>@item.price</td>
+            <td><a href="/Admin/UpdateFlight/?id=@item.ID" class="btn btn-warning">Update</a></td>
+        </tr>
+    }
+        
+</table>

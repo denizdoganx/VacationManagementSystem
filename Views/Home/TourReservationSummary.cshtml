@@ -1,0 +1,38 @@
+﻿@model (TourTicket tt, Tour to, TravelAgency ta)
+
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleAdmin.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div style="text-align:center;">
+    <h3>Reservation Summary</h3>
+    <h6>Operation successful, Your Seat Number is @Model.tt.seatNumber </h6>
+    <table class="table table-bordered">
+        <tr>
+            <td>Region</td>
+            <td>@Model.to.tourType</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.to.tourPrice TL</td>
+        </tr>
+        <tr>
+            <td>Deperture Place</td>
+            <td>@Model.to.deperturePlace</td>
+        </tr>
+        <tr>
+            <td>Arrival Place</td>
+            <td>@Model.to.arrivalPlace</td>
+        </tr>
+        <tr>
+            <td>Supplier</td>
+            <td>@Model.ta.name</td>
+        </tr>
+        <tr>
+            <td>Seat Number</td>
+            <td>@Model.tt.seatNumber</td>
+        </tr>
+    </table>
+    <a class="btn btn-primary" href="/home/index">Go Home</a>
+</div>

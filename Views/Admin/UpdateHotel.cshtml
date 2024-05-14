@@ -1,0 +1,44 @@
+﻿@model HotelAddVM
+@{
+    ViewBag.Title = "HotelAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_HotelAdminLayout.cshtml";
+}
+<h2>Hotel will update to here</h2>
+<br />
+<form asp-controller="Admin" asp-action="UpdateHotel" class="form-group" method="post">
+    <label>Hotel Name:</label>
+    <input asp-for="name" type="text" name="name" placeholder="@Model.name" />
+    <br />
+    <label>Total Room Number:</label>
+    <input asp-for="totalRoomNumber" type="number" name="totalRoomNumber" placeholder="@Model.totalRoomNumber" />
+    <br />
+    <label>Country Name:</label>
+    <input asp-for="countryName" type="text" name="countryName" placeholder="@Model.countryName" />
+    <br />
+    <label>City Name:</label>
+    <input asp-for="cityName" type="text" name="cityName" placeholder="@Model.cityName" />
+    <br />
+    <label>Town Name</label>
+    <input asp-for="townName" type="text" name="townName" placeholder="@Model.townName" />
+    <br />
+    <label>District Name:</label>
+    <input asp-for="districtName" type="text" name="districtName" placeholder="@Model.districtName" />
+    <br />
+    <label>Postal Code:</label>
+    <input asp-for="postalCode" type="text" name="postalCode" placeholder="@Model.postalCode" />
+    <br />
+    <label>Address Text:</label>
+    <input asp-for="addressText" type="text" name="addressText" placeholder="@Model.addressText" />
+    <br />
+
+    <button class="btn btn-primary">UPDATE</button>
+
+</form>
+<div asp-validation-summary="All"></div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

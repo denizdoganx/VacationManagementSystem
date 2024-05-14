@@ -1,0 +1,39 @@
+﻿@model UserLoginVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/bodystyle.css">
+    <link href="~/css/loginstyle.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+    <div class="padding-all-login">
+        <div class="headerlogin">
+            <h1>Travel Booking Login</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                <form asp-controller="user" asp-action="login" method="post">
+                    <input asp-for="email" type="text" name="email" placeholder="Email" />
+                    <input asp-for="password" type="password" name="password" placeholder="Password" />
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <div asp-validation-summary="All">
+
+    </div>
+    <div>
+        <p>@ViewBag.notFound</p>
+    </div>
+
+</body>
+</html>

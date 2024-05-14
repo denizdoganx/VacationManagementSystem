@@ -1,0 +1,36 @@
+﻿@model List<Room>
+
+@{
+    ViewBag.Title = "HotelAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_HotelAdminLayout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Booking Status</th>
+        <th>Max Guest</th>
+        <th>roomPrice</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.bookingStatus</td>
+            <td>@item.maxGuest</td>
+            <td>@item.roomPrice</td>
+            <td><a href="#" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/UpdateRoom?id=@item.ID" class="btn btn-warning">Update</a></td>
+        </tr>
+    }
+
+</table>

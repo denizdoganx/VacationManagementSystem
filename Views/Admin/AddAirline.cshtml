@@ -1,0 +1,21 @@
+﻿@model AirlineAddVM
+
+@{
+    ViewBag.Title = "AirlineAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_AirlineAdminLayout.cshtml";
+}
+<h2>Airline will add to here</h2>
+<br />
+<form asp-controller="Admin" asp-action="AddAirline" class="form-group" method="post">
+    <input asp-for="name" type="text" name="name" placeholder="Airline Name" />
+    <br />
+    <button class="btn btn-primary">ADD</button>
+</form>
+<div asp-validation-summary="All"></div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

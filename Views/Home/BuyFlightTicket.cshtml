@@ -1,0 +1,88 @@
+﻿@model (Flight f, Airline a)
+
+@{
+    ViewBag.Title = "BuyFlightTicket";
+}
+<head>
+    <link rel="stylesheet" href="~/css/StyleAdmin.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div style="text-align:center;">
+    <h3>Reservation Summary</h3>
+    <table class="table table-bordered">
+        <tr>
+            <td>From</td>
+            <td>@Model.f.from</td>
+        </tr>
+        <tr>
+            <td>To</td>
+            <td>@Model.f.to</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.f.price</td>
+        </tr>
+        <tr>
+            <td>Airline Name</td>
+            <td>@Model.a.name</td>
+        </tr>
+    </table>
+    <h3>Payment Informations</h3>
+    <table class="table table-bordered">
+        <tr>
+            <td>Fee</td>
+            <td>Tax and Other</td>
+            <td>Subtotal</td>
+        </tr>
+        <tr>
+            @{
+                double taxAndOther = @Model.f.price * 1.08 - Model.f.price;
+                double fee = @Model.f.price - taxAndOther;
+                <td>@fee TL</td>
+                <td>@taxAndOther TL</td>
+                <td>@Model.f.price TL</td>
+            }
+        </tr>
+    </table>
+    <h3>Determine Your Form of Payment</h3>
+
+    <form asp-controller="home" asp-action="buyflightticket" method="post">
+        <label>Name on the Card</label>
+        <input type="text" name="nameOnTheCard" />
+        <br />
+
+        <label>Card Number</label>
+        <input type="text" name="cardNumber" />
+        <br />
+
+        <label>Expiration Date</label>
+        <span>
+            Month
+            <select>
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <option>@i</option>
+                }
+            </select>
+        </span>
+        <span>
+            Year
+            <select>
+                @for (int i = 2023; i <= 2036; i++)
+                {
+                    <option>@i</option>
+                }
+            </select>
+        </span>
+        <br />
+        <label>CVC</label>
+        <input type="text" name="cvc" />
+        <br />
+        <input name="airlineID" value="@Model.a.ID" hidden />
+        <input name="flightID" value="@Model.f.ID" hidden />
+        <button style="background-color:orange;color:white">Pay ></button>
+    </form>
+</div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+</div>

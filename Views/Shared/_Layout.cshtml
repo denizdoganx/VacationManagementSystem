@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/layout.css" type="text/css" media="all" />
+    <link href="~/css/layoutslider.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/responsiveslides.min.js"></script>
+
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="logo"><a href="/Home/Index/"><p><h1>Travel booking</h1></p></a></div>
+            <div class="con-right">
+                <div class="grid1-1-desc">
+                    @{
+                        string id = ViewBag.id;
+                        if (id == null)
+                        {
+                            <a href="/User/Login/" class="btn btn-success" role="button" aria-pressed="true">Sign In</a>
+                            <a href="/Customer/SignUp/" class="btn btn-danger" role="button" aria-pressed="true">Register</a>
+                        }
+                        else
+                        { 
+                            <a href="/Customer/MyAccount/" class="btn btn-danger" role="button" aria-pressed="true">MyAccount</a>
+                        }
+                    }
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="wrap">
+            <ul id="nav">
+                <li><a href="/Home/Index/">Home</a></li>
+                <li><a class="hsubs" href="/Home/Flight/">Flight</a></li>
+                <li><a class="hsubs" href="/Home/Hotel/">Hotel</a></li>
+                <li><a class="hsubs" href="/Home/Tour/">Tour</a></li>
+                <li><a class="hsubs" href="/Home/About/">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-2">
+        @RenderSection("leftSideBarForMyAccout", false)
+    </div>
+    <div class"content">
+        @RenderBody()
+    </div>
+    <div class="footer-bottom">
+        <div class="wrap">
+            <div class="copy">
+                <p>&copy; 2022 Travel booking. All Rights Reserved | Design by Alperen Turhan and Deniz Dogan</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

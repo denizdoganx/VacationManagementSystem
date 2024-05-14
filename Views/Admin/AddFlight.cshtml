@@ -1,0 +1,40 @@
+﻿@model FlightAddVM
+
+
+@{
+    ViewBag.Title = "AirlineAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_AirlineAdminLayout.cshtml";
+}
+<h2>Flight will add to here</h2>
+<br />
+
+<form asp-controller="admin" asp-action="addflight" class="form-group" method="post">
+    <input asp-for="airlineName" type="text" name="airlineName" placeholder="Airline Name" />
+    <br />
+    <input asp-for="from" type="text" name="from" placeholder="From" />
+    <br />
+    <input asp-for="to" type="text" name="to" placeholder="To" />
+    <br />
+    <input asp-for="price" type="text" name="price" placeholder="Price" />
+    <br />
+    <input asp-for="arrivalTime" type="datetime" name="arrivalTime" placeholder="Arrival Time" />
+    <br />
+    <input asp-for="depertureTime" type="datetime" name="depertureTime" placeholder="Deperture Time" />
+    <br />
+    <input asp-for="destination" type="text" name="destination" placeholder="Destination" />
+    <br />
+    <input asp-for="capacity" type="number" name="capacity" placeholder="Capacity" />
+    <br />
+    <button class="btn btn-primary">ADD</button>
+</form>
+
+<div asp-validation-summary="All">
+
+</div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

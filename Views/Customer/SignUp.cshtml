@@ -1,0 +1,45 @@
+﻿@model CustomerSignUpVM
+
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/css/bodystyle.css">
+    <link href="~/css/loginstyle.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+    <div class="padding-all-login">
+        <div class="headerlogin">
+            <h1>Travel Booking Register</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                <form asp-controller="customer" asp-action="signup" method="post">
+                    <input asp-for="email" type="text" name="email" placeholder="Email" required="" />
+                    <input asp-for="password" type="password" name="password" placeholder="Password" required="" />
+                    <input asp-for="name" type="text" name="name" placeholder="Name" required="" />
+                    <input asp-for="surname" type="text" name="surname" placeholder="Surname" required="" />
+                    <input asp-for="phoneNumber" type="text" name="phoneNumber" placeholder="PhoneNumber" required="" />
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <div asp-validation-summary="All">
+
+    </div>
+    <div>
+        <p>@ViewBag.alreadyRegistered</p>
+        <p>@ViewBag.redirectMessage</p>
+    </div>
+</body>
+</html>

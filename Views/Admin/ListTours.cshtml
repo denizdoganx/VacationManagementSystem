@@ -1,0 +1,42 @@
+﻿@model List<Tour>
+
+@{
+    ViewBag.Title = "TravelAgencyAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_TravelAgencyAdminLayout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Tour Type</th>
+        <th>Max Guest</th>
+        <th>Tour Price</th>
+        <th>Deperture Place</th>
+        <th>Arrival Place</th>
+        <th>Empty Seat Number</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.tourType</td>
+            <td>@item.maxGuest</td>
+            <td>@item.tourPrice</td>
+            <td>@item.deperturePlace</td>
+            <td>@item.arrivalPlace</td>
+            <td>@item.emptySeatNumber</td>
+            <td><a href="#" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/UpdateTour?id=@item.ID" class="btn btn-warning">Update</a></td>
+        </tr>
+    }
+
+</table>

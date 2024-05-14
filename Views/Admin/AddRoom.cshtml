@@ -1,0 +1,33 @@
+﻿@model RoomAddVM
+
+@{
+    ViewBag.Title = "HotelAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_HotelAdminLayout.cshtml";
+}
+<h2>Room will add to here</h2>
+<br />
+<form asp-controller="Admin" asp-action="AddRoom" class="form-group" method="post">
+
+    <input asp-for="hotelID" type="number" name="hotelID" placeholder="Hotel ID" />
+    <br />
+
+    <input asp-for="maxGuest" type="number" name="maxGuest" placeholder="Max Guest Number" />
+    <br />
+
+    <input asp-for="roomPrice" type="text" name="roomPrice" placeholder="Room Price" />
+    <br />
+
+    <textarea asp-for="description" name="description" placeholder="Description About Room" rows="20" cols="80"></textarea>
+    <br />
+
+
+    <button class="btn btn-primary">ADD</button>
+</form>
+<div asp-validation-summary="All"></div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

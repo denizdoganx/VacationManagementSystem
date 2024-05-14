@@ -1,0 +1,38 @@
+﻿@model (FlightTicket ft, Flight f, Airline a)
+
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleAdmin.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div style="text-align:center;">
+    <h3>Reservation Summary</h3>
+    <h6>Operation successful, Your Seat Number is @Model.ft.seatNumber</h6>
+    <table class="table table-bordered">
+        <tr>
+            <td>From</td>
+            <td>@Model.f.from</td>
+        </tr>
+        <tr>
+            <td>To</td>
+            <td>@Model.f.to</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.f.price TL</td>
+        </tr>
+        <tr>
+            <td>Airline Name</td>
+            <td>@Model.a.name</td>
+        </tr>
+        <tr>
+            <td>Arrival Time</td>
+            <td>@Model.f.arrivalTime.ToShortTimeString()</td>
+        </tr>
+        <tr>
+            <td>Deperture Time</td>
+            <td>@Model.f.depertureTime.ToShortTimeString()</td>
+        </tr>
+    </table>
+    <a class="btn btn-primary" href="/home/index">Go Home</a>
+ </div>

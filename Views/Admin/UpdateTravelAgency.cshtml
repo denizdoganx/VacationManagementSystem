@@ -1,0 +1,21 @@
+﻿@model TravelAgencyAddVM
+@{
+    ViewBag.Title = "TravelAgencyAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_TravelAgencyAdminLayout.cshtml";
+}
+<h2>Travel Agency will update to here</h2>
+<br />
+<form asp-controller="Admin" asp-action="UpdateTravelAgency" class="form-group" method="post">
+    <label>Travel Agency Name:</label>
+    <input asp-for="name" type="text" name="name" placeholder="@Model.name" />
+    <br />
+    <button class="btn btn-primary">UPDATE</button>
+</form>
+<div asp-validation-summary="All"></div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>

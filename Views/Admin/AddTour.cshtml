@@ -1,0 +1,43 @@
+﻿@model TourAddVM
+
+@{
+    ViewBag.Title = "TravelAgencyAdminPanel";
+}
+
+@{
+    Layout = "~/Views/Shared/_TravelAgencyAdminLayout.cshtml";
+}
+<h2>Tour will add to here</h2>
+<br />
+<form asp-controller="Admin" asp-action="AddTour" class="form-group" method="post">
+
+    <input asp-for="travelAgencyName" type="text" name="travelAgencyName" placeholder="Travel Agency Name" />
+    <br />
+
+    <input asp-for="tourType" type="text" name="tourType" placeholder="Tour Type" />
+    <br />
+
+    <input asp-for="deperturePlace" type="text" name="deperturePlace" placeholder="Deperture Place" />
+    <br />
+
+    <input asp-for="arrivalPlace" type="text" name="arrivalPlace" placeholder="Arrival Place" />
+    <br />
+
+    <input asp-for="tourPrice" type="number" name="tourPrice" placeholder="Tour Price" />
+    <br />
+
+    <input asp-for="maxGuest" type="number" name="maxGuest" placeholder="Max Guest Number" />
+    <br />
+
+
+    <textarea asp-for="description" name="description" placeholder="Description About Tour" rows="20" cols="80"></textarea>
+    <br />
+
+
+    <button class="btn btn-primary">ADD</button>
+</form>
+<div asp-validation-summary="All"></div>
+<div>
+    <p>@ViewBag.errorMessage</p>
+    <p>@ViewBag.succesfulMessage</p>
+</div>
